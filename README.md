@@ -6,6 +6,10 @@ When you connect an LLM agent to live marketing accounts — ad platforms with r
 
 This library answers that question with six independent gates. Every one of them fails closed.
 
+## Background
+
+This was extracted from a private marketing-intelligence platform I built for an e-commerce business. The platform connects an LLM agent to nine live sources — analytics, ad accounts with real budgets, a storefront — through MCP servers, and the agent is only ever allowed to read. The policy layer that enforces that is what you see here, published without the platform-specific code or any account data.
+
 ## The problem
 
 An MCP server exposes tools to a model. The model picks which to call. Two assumptions quietly break:
@@ -68,6 +72,16 @@ Even a permitted read can leak. Two more pieces assume it will:
 `ANALYZE` is the only mode this repository ships in use. The `CONTROLLED_ACTION` path exists, is tested, and stays shut: a write requires a preview, a dry-run status, a fresh single-use confirmation, and an Action ID that is payload-bound (SHA-256 over a key-sorted serialisation) and expires in five minutes. Changing the payload after preview invalidates the ID. Reusing a consumed ID fails.
 
 It is built so that turning writes on is a deliberate act with an audit trail, not a config toggle.
+
+## Install
+
+Not published to npm. Install straight from GitHub:
+
+```bash
+npm install github:azzamsu0/mcp-analyze-guard
+```
+
+Requires Node 20 or later.
 
 ## Usage
 
