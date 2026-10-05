@@ -1,0 +1,22 @@
+node_modules/
+.npm-cache/
+
+# Credentials never belong in this repository.
+.secrets/
+secrets/
+*.env
+.env
+.env.*
+!.env.example
+
+# Runtime state: audit logs, action state, cached responses.
+.security/
+state/
+data/
+logs/
+out/
+*.log
+*.tmp-*
+
+dist/
+build/

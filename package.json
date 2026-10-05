@@ -1,0 +1,34 @@
+{
+  "name": "mcp-analyze-guard",
+  "version": "1.0.0",
+  "description": "Read-only policy engine for MCP servers: name- and action-level allowlists, OAuth scope validation, secret redaction and an append-only audit trail.",
+  "type": "module",
+  "license": "MIT",
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./policy": "./src/policy.js"
+  },
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "audit:secrets": "node scripts/audit-secrets.mjs"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "allowlist",
+    "read-only",
+    "least-privilege",
+    "oauth-scopes",
+    "redaction",
+    "audit-log"
+  ]
+}
